@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="width=device-width, initial-scale=1, maximum-scale=1" charset="utf-8" />
+<title>MakitoNoeru's Tricks on LayUI</title>
+<link rel="stylesheet" href="layui-v2.6.8/layui/css/layui.css">
+<link rel="shortcut icon" href="Logo.ico" type="image/x-icon" />
+<style>img{
+    max-width: 60px; 
+    max-height: 60px;}
+</style>
+<ul class="layui-nav my-nav layui-nav-child-c" lay-filter="" lay-shrink="" >
+  <li class="layui-nav-item" ><a href="mainpage.html"><img src="Logo.ico"></a></li> 
+  <li class="layui-nav-item layui-this"><a href="justforfun.html">模拟</a></li>
+  <li class="layui-nav-item"><a href="dopeCSS.html">CSS效果</a></li>
+  <li class="layui-nav-item">
+    <a href="javascript:;">博客</a>
+    <dl class="layui-nav-child"> <!-- 二级菜单 -->
+      <dd><a href="carousel.html">轮播</a></dd>
+      <dd><a href="">空的2</a></dd>
+      <dd><a href="">空的3</a></dd>
+    </dl>
+  </li>
+  <li class="layui-nav-item"><a href="cgi.html">CGI项目</a></li>
+</ul>
+</head>
+<body>
+<div class = "layui-fluid">
+    <br><br>
+    <div class="title" style = "margin:auto; text-align: center; font-size: 50px; font-family: Heiti;color:#92a8d1">
+        <p> 牧人野絵流の一本正经 </p>
+    </div>
+    <br>
+</div>
+    <div class = "layui-fluid">
+        <div class="layui-progress layui-progress-big layui-anim layui-anim-scale" lay-filter = "filterbtn" lay-showPercent='y' style="margin: 30px 0 30px;">
+            <div class="layui-progress-bar layui-bg-serenity" lay-percent="0%">
+            </div>
+        </div>
+    </div>
+<br><br>
+<div class = "layui-fluid" style="text-align:center;font-size:large;"><div style="color:#92a8d1;"><p>点击加载模拟组件</p>
+<br><br>
+	<button id = 'bar' class = "layui-btn layui-btn-radius pbarfun layui-anim layui-anim-scale layui-bg-serenity" data-type = "progressbar" > 这是一个按钮 </button>
+	</div></div>
+<br><br>
+<div class = "layui-fluid">
+	<div id = "con" class = "layui-font-green" style = "text-align:center; font-size:x-large; display:none";> <p> <span style="background:black">其实什么也没有发生XD</span> </p> </div>
+
+
+<script src="layui-v2.6.8/layui/layui.js"></script>
+
+<script>
+layui.use('element', function(){
+    var $ = layui.jquery
+    ,layer = layui.layer
+    ,form = layui.form
+    ,laypage = layui.laypage
+    ,element = layui.element
+    ,laydate = layui.laydate
+    ,uil = layui.util;
+  //欢迎信息
+  layer.msg("Welcome to Makito Noeru's LayUI site!");
+
+  //触发事件
+  var active = {
+    setPercent: function(){
+      //设置50%进度
+      element.progress('demo', '50%')
+    }
+    ,progressbar: function(othis){
+      var DISABLED = 'layui-btn-disabled';
+      if(othis.hasClass(DISABLED)) return;
+    
+      //模拟loading
+      var myMsg = layer.msg("正在高速加载，请稍等...",{time:false});
+      var n = 0, timer = setInterval(function(){
+	n = n + Math.random()*20|0;  
+        if(n>100){
+          n = 100;
+          clearInterval(timer);
+          othis.removeClass(DISABLED);
+	  layer.close(myMsg);
+	  layer.msg("成功加载模拟组件!");
+	  $('#con').delay(2000).fadeToggle();
+        }
+        element.progress('filterbtn', n+'%');
+      }, 300+Math.random()*1000);
+      
+      othis.addClass(DISABLED);
+    }
+  };
+
+  
+  $('.pbarfun').on('click', function(){
+    var othis = $(this), type = $(this).data('type');
+    active[type] ? active[type].call(this, othis) : '';
+  });
+  //输出版本号
+  lay('#version').html(layui.v);
+  
+  //日期
+  laydate.render({
+    elem: '#test2'
+    ,value: new Date()
+    ,isInitValue: true
+  });
+});
+</script>
+
+</body>
+</html>

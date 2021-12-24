@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+<title>AKA MakitoNoeru</title>
+<link rel="stylesheet" href="layui-v2.6.8/layui/css/layui.css">
+<link rel="shortcut icon" href="Logo.ico" type="image/x-icon" />
+<html>
+<head>
+    <style>img{
+        max-width: 60px; 
+        max-height: 60px;}
+    </style>
+    <ul class="layui-nav my-nav layui-nav-child-c" lay-filter="" lay-shrink="">
+        <li class="layui-nav-item layui-this" ><a href="mainpage.html"><img src="Logo.ico"></a></li> 
+        <li class="layui-nav-item"><a href="justforfun.html">模拟</a></li>
+        <li class="layui-nav-item"><a href="dopeCSS.html">CSS效果</a></li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">博客</a>
+          <dl class="layui-nav-child"> <!-- 二级菜单 -->
+            <dd><a href="carousel.html">轮播</a></dd>
+            <dd><a href="particles.html">粒子</a></dd>
+            <dd><a href="">空的3</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item"><a href="cgi.html">CGI项目</a></li>
+    </ul>
+<script src="layui-v2.6.8/layui/layui.js"></script>
+<script>
+layui.use('element',function(){
+	var $ = layui.jquery
+    ,element = layui.element;
+})
+</script>
+</head>
+
+<body>
+    <br><br>
+	<div class = "center" style = "text-align: center;font-size: large;"><p>演示带有不同参数的 fadeToggle() 方法。</p>
+	    <br>
+        <button>点击这里，使三个矩形淡入 <br> 再点一次，三个矩形淡出</button>
+	<br><br>
+	<a href="justforfun.html">你想要好康的？这里有</a> 
+    <br><br>
+    <div id="div1" class = "layui-font-green" style="margin:0 auto;width:80px;height:80px;display:none;background-color:red;"></div>
+    <br>
+    <div id="div2" class = "layui-font-green" style="margin:0 auto;width:80px;height:80px;display:none;background-color:green;"></div>
+    <br>
+    <div id="div3" class = "layui-font-green" style="margin:0 auto;width:80px;height:80px;display:none;background-color:blue;"></div>
+</div>
+</body>
+</html>

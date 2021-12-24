@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+<title>Take what you need</title>
+<link rel="stylesheet" href="layui-v2.6.8/layui/css/layui.css">
+<link rel="shortcut icon" href="Logo.ico" type="image/x-icon" />
+<style>
+     img{
+         max-width: 100%; 
+         max-height: 100%;}
+</style>
+<style>
+    .logo{
+    max-width: 60px; 
+    max-height: 60px;}
+</style>
+<ul class="layui-nav my-nav layui-nav-child-c" lay-filter="" lay-shrink="" >
+    <li class="layui-nav-item" ><a href="mainpage.html"><img class= "logo" src="Logo.png"></a></li> 
+    <li class="layui-nav-item"><a href="justforfun.html">模拟</a></li>
+    <li class="layui-nav-item"><a href="dopeCSS.html">CSS效果</a></li>
+    <li class="layui-nav-item layui-this">
+      <a href="javascript:;">博客</a>
+      <dl class="layui-nav-child"> <!-- 二级菜单 -->
+        <dd><a href="carousel.html">轮播</a></dd>
+        <dd><a href="particles.html">粒子</a></dd>
+        <dd><a href="gang.html">大家的刚刚</a></dd>
+      </dl>
+    </li>
+    <li class="layui-nav-item"><a href="cgi.html">CGI项目</a></li>
+</ul>
+</head>
+<body>
+    <div class = "layui-fluid">
+    <div class="layui-carousel" id="caro" style="margin:auto;text-align: center;">
+        <div carousel-item>
+          <div><img src= "https://wallpaperaccess.com/full/4205666.jpg"></div>
+          <div><img src= "https://wallpaperaccess.com/full/2291171.jpg"></div>
+          <div><img src= "https://wallpaperaccess.com/full/4205685.jpg"></div>
+          <div><img src= "https://ebitfactory.se/wp-content/uploads/2016/11/photo-1465056836041-7f43ac27dcb5-1920x720.jpeg"></div>
+          <div><img src= "https://external-preview.redd.it/2lAttedOm-sTmsU9ZFMcDwcc-U1EuYVFx_SWwf7fhFI.jpg?auto=webp&s=4d74ba6c04e0d9a79c449be52f15ec830d82ac2a"></div>
+        </div>
+    </div>
+    </div>
+      <!-- 条目中可以是任意内容，如：<img src=""> -->
+       
+      <script src="/layui-v2.6.8/layui/layui.js" ></script>
+      <script>
+      layui.use('carousel', function(){
+        var carousel = layui.carousel
+        ,$ = layui.jquery
+        ,element=layui.element;
+        var b = 1920/720;
+        var r = 0.7;
+        var W = $(window).width();
+        var H = $(window).height();
+        //建造实例
+
+        var ins = carousel.render({
+          elem: '#caro'
+          ,width: (r*W).toString() +"px" //设置容器宽度
+          ,height: (r*W/b).toString() + "px"
+          ,arrow: 'always' //始终显示箭头
+          ,anim: 'fade' //切换动画方式
+        });
+
+        $(window).bind('resize', function() {
+            var W = $(window).width();
+            var H = $(window).height();
+            ins.reload({
+            elem: '#caro'
+          ,width: (r*W).toString() +"px" //设置容器宽度
+          ,height: (r*W/b).toString() + "px"
+          ,arrow: 'always' //始终显示箭头
+          ,anim: 'fade' //切换动画方式)
+        });
+    })
+    });
+</script>
+</body>
+</html>

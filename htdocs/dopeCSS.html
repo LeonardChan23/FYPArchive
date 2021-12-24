@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+<title>MakitoNoeru's CSS</title>
+<link rel="stylesheet" href="layui-v2.6.8/layui/css/layui.css">
+<link rel="shortcut icon" href="Logo.ico" type="image/x-icon" />
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Warnes&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+    :root {
+    --color :#f7Cac9;
+    --color2: #92a8d1;
+    }
+
+    html{
+        height:100%;
+        background:#ffecec;
+    }
+
+    body{
+        display: flex;
+	    align-items: center;
+	    justify-content: Top;
+        min-height: 100%;
+	    background:linear-gradient(90deg,#c1cfff,#ffecec);
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .Neon{
+        text-align: center;
+        background: none;
+        color: #999;
+        font-family: 'Dancing Script', 'Warnes', cursive;
+        font-size: 300px;
+        letter-spacing: -40px;
+        cursor: pointer;
+        /*Height: 50%;*/
+        /*Width: 100%;*/
+    }
+
+    .Neon:hover #n {
+        animation: flicker 1s linear forwards;
+    }
+
+    .Neon:hover #e {
+        animation: 
+            flicker 1s linear 0.2s forwards,
+            flicker2 0.25s linear 1.2s reverse forwards, 
+            showup 0.1s linear 2s forwards;
+    }
+
+    .Neon:hover #o {
+        animation: flicker 1s linear .4s forwards, flicker2 0.25s linear 1.3s;
+    }
+    .Neon:hover #n2 {
+        animation: flicker 1s linear .6s forwards, flicker2 0.25s linear 1.2s;
+    }
+
+    .back-button{
+        position:relative;
+        left:0px;
+        top:100px;
+    }
+
+
+    @keyframes flicker {
+        0% {
+            color: #999;
+        }
+        5%, 15%, 25%, 30%, 100% {
+            color: #fff;
+            text-shadow: 
+            0px 0px 5px var(--color),
+            0px 0px 10px var(--color),
+            0px 0px 20px var(--color),
+            0px 0px 50px var(--color);
+        }
+        10%, 20% {
+            color: #999;
+            text-shadow: none;
+        }
+    }
+
+    @keyframes flicker2 {
+        0% {
+            color: #92a8d1;
+            text-shadow:none;
+        }
+        50%, 100% {
+            color: #fff;
+            text-shadow: 
+            0px 0px 5px var(--color),
+            0px 0px 10px var(--color),
+            0px 0px 20px var(--color),
+            0px 0px 50px var(--color);
+        }
+        20%, 70% {
+            color: #92a8d1;
+            text-shadow: none;
+        }
+    }
+    @keyframes showup{
+        0%{
+            color:#999;
+            text-shadow:none;
+        }
+
+        100%{
+            color: #fff;
+            text-shadow: 
+            0px 0px 5px var(--color),
+            0px 0px 10px var(--color),
+            0px 0px 20px var(--color),
+            0px 0px 50px var(--color);
+        }
+    }
+    
+</style>
+<style>img{
+    max-width: 60px; 
+    max-height: 60px;}
+</style>
+<ul class="layui-nav my-nav layui-nav-child-c" lay-filter="" lay-shrink="" >
+    <li class="layui-nav-item" ><a href="mainpage.html"><img src="Logo.ico"></a></li> 
+    <li class="layui-nav-item"><a href="justforfun.html">模拟</a></li>
+    <li class="layui-nav-item layui-this"><a href="dopeCSS.html">CSS效果</a></li>
+    <li class="layui-nav-item">
+      <a href="javascript:;">博客</a>
+      <dl class="layui-nav-child"> <!-- 二级菜单 -->
+        <dd><a href="carousel.html">轮播</a></dd>
+        <dd><a href="particles.html">粒子</a></dd>
+        <dd><a href="">空的3</a></dd>
+      </dl>
+    </li>
+    <li class="layui-nav-item"><a href="cgi.html">CGI项目</a></li>
+</ul>
+</head>
+<body>
+    <p class="Neon layui-anim layui-anim-scale">
+        <span id="n">n</span>
+        <span id="e">e</span>
+        <span id="o">o</span>
+        <span id="n2">n</span>
+    </p>
+    <hr><hr>
+    <a href="mainpage.html">
+        <button type="button" class="layui-btn layui-anim layui-anim-scale layui-btn-lg layui-btn-primary layui-btn-radius back-button">
+            <i class="layui-icon layui-icon-right"></i>
+            <span class = "layui-badge-dot layui-bg-serenity"></span>     回到主站<span class = "layui-badge-dot layui-bg-rosy"></span>
+            <i class="layui-icon layui-icon-left"></i>
+    </button>
+    </a>    
+</body>
+<script src="layui-v2.6.8/layui/layui.js"></script>
+<script>
+layui.use('element',function(){
+	var $ = layui.jquery
+    ,element = layui.element;
+$(document).ready(function()
+	{
+  	$("button").click(function()
+		{
+    		$("#div1").fadeToggle();
+    		$("#div2").fadeToggle("slow");
+    		$("#div3").fadeToggle(2000);
+  		});
+	});
+})
+</script>
+</html>
